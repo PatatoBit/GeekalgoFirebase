@@ -1,7 +1,19 @@
 <script>
+	import { auth, db } from '../firebase';
+	import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+	const provider = new GoogleAuthProvider();
+
+	function SignIn() {
+		signInWithPopup(auth, provider)
+			.then((result) => {
+				console.log(result);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
 </script>
 
-<div class="flex flex-col w-full h-screen items-center justify-center bg-slate-700">
-	<h1 class="flex text-5xl text-slate-50">Svelte Template🐳</h1>
-	<h1 class="flex text-sm text-slate-50">I have no idea what I'm doing</h1>
+<div class="flex items-center justify-center w-full h-screen">
+	<button on:click={SignIn}>Sign in with Google</button>
 </div>
