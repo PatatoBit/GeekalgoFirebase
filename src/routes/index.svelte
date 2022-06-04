@@ -27,7 +27,7 @@
 
 {#if isLoggedin}
 	 <div class="flex items-center justify-center w-full h-screen">
-		 <h1 class="text-6xl">You have Logged in!</h1>
+			<button on:click={() => auth.signOut()}>Sign Out</button>
 	</div>
 {:else}
 	 <div class="flex items-center justify-center w-full h-screen">
